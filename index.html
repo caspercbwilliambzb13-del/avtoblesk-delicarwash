@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="dark" />
     <link rel="icon" href="data:," />
-    <title>АвтоБлеск — вариант DeliCarwash</title>
+    <title>Detailing Bro — вариант DeliCarwash</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6RMD07E5KT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6RMD07E5KT');</script>
     <style>
       :root{
         --bg:#0a0a0b;
@@ -213,6 +215,12 @@
       .msg .who{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin-bottom:4px}
       .chat-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
       .chat-chips .chip{min-height:40px;font-size:13.5px;padding:8px 13px}
+      .chat-input-row{display:flex;gap:8px;margin-top:12px}
+      .chat-input-row input{flex:1;background:var(--panel2);border:1px solid var(--line);border-radius:999px;color:var(--txt);padding:12px 16px;font-size:15px;font-family:inherit;min-height:48px}
+      .chat-input-row button{background:var(--white);color:var(--black);border:0;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;font-size:18px;font-weight:800}
+      #deliChatMic.rec{background:#E5484D;color:#fff;border-color:#E5484D}
+      body{padding-bottom:24px}
+      #book-btn{position:relative;z-index:1}
 
       /* ---------- before/after & gallery ---------- */
       .ba{position:relative;border-radius:var(--radius);border:1px solid var(--line-soft);overflow:hidden}
@@ -311,12 +319,12 @@
       </div>
       <div class="hero-in">
         <div class="wrap">
-          <h1>Авто<span class="thin">Блеск</span></h1>
+          <h1>Detailing <span class="thin">Bro</span></h1>
           <p class="hero-sub">Детейлинг-студия: мойка, полировка и керамика с записью онлайн, статусами заказа и фотоотчётом — как в DeliCarwash, только под наш бренд и цены в рублях.</p>
           <div class="hero-meta">
             <span class="meta-chip">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-              Москва, Автозаводская, 23с7
+              Москва, ул. Вавилова, 1
             </span>
             <span class="meta-chip">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
@@ -411,7 +419,7 @@
         <div class="book-grid">
           <div class="panel" id="book-form">
             <h3 id="book-svc-name">Комплексная мойка</h3>
-            <p class="sub">Студия: Москва, Автозаводская, 23с7 · или выезд мастера</p>
+            <p class="sub">Студия: Москва, ул. Вавилова, 1 · или выезд мастера</p>
 
             <div class="lbl">Дата</div>
             <div class="chips" id="date-chips">
@@ -460,6 +468,8 @@
               <div class="sum-row"><span>Услуга</span><b id="done-svc">—</b></div>
               <div class="sum-row"><span>Когда</span><b id="done-when">—</b></div>
               <div class="sum-row"><span>Итого</span><b id="done-total">—</b></div>
+              <div class="sum-row" id="done-name-row" style="display:none"><span>Имя</span><b id="done-name">—</b></div>
+              <div class="sum-row" id="done-phone-row" style="display:none"><span>Телефон</span><b id="done-phone">—</b></div>
               <ul class="track">
                 <li class="done"><span class="dot"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M4 12.5 9.5 18 20 6.5"/></svg></span>Заявка принята</li>
                 <li class="now"><span class="dot"></span>Студия подтверждает время</li>
@@ -479,14 +489,19 @@
             <h3>Чат со студией</h3>
             <p class="sub">В ките DeliCarwash чат встроен в заявку: сюда падают фото «до / после» и ссылка на оплату</p>
             <div class="chat-box" id="chat-box">
-              <div class="msg studio"><span class="who">АвтоБлеск</span>Здравствуйте! Подтверждаем запись на четверг, 19 ноября, 10:00. Пришлите, пожалуйста, фото авто — оценим состояние лака до визита.</div>
+              <div class="msg studio"><span class="who">Detailing Bro</span>Здравствуйте! Подтверждаем запись на четверг, 19 ноября, 10:00. Пришлите, пожалуйста, фото авто — оценим состояние лака до визита.</div>
               <div class="msg me"><span class="who">Вы</span>Добрый день! Фото отправил. Ещё вопрос: сколько держится керамика?</div>
-              <div class="msg studio"><span class="who">АвтоБлеск</span>Получили, спасибо. По керамике ответит мастер после осмотра — зависит от состояния покрытия.</div>
+              <div class="msg studio"><span class="who">Detailing Bro</span>Получили, спасибо. По керамике ответит мастер после осмотра — зависит от состояния покрытия.</div>
             </div>
             <div class="chat-chips">
               <button class="chip" data-ask="Можно ли перенести запись на вечер?">Перенести на вечер</button>
               <button class="chip" data-ask="Пришлите фото «после», пожалуйста">Запросить фото «после»</button>
               <button class="chip" data-ask="Как оплатить?">Как оплатить?</button>
+            </div>
+            <div class="chat-input-row">
+              <input type="text" id="deliChatText" placeholder="Напишите сообщение…" autocomplete="off" />
+              <button type="button" id="deliChatMic" aria-label="Голосовой ввод">🎙</button>
+              <button type="button" id="deliChatSend" aria-label="Отправить">➤</button>
             </div>
           </div>
 
@@ -584,7 +599,7 @@
 
     <footer>
       <div class="wrap">
-        <span>АвтоБлеск · вариант по референсу DeliCarwash ($19, EpicPxls)</span>
+        <span>Detailing Bro · вариант по референсу DeliCarwash ($19, EpicPxls)</span>
         <span>Парный вариант для сравнения — адаптация приложения химчистки мебели</span>
       </div>
     </footer>
@@ -737,47 +752,330 @@
         renderOrders();
 
         /* ----- booking submit ----- */
-        document.getElementById("book-btn").addEventListener("click", function(){
+        function submitBooking(name, phone){
           var num = nextOrderNum++;
           document.getElementById("order-num").textContent = num;
           document.getElementById("done-svc").textContent = state.svcName + " · " + state.className;
           document.getElementById("done-when").textContent = state.date + " · " + state.time + (state.out ? " · выезд за город" : "");
           document.getElementById("done-total").textContent = fmt(total());
+          var nr = document.getElementById("done-name-row"), pr = document.getElementById("done-phone-row");
+          if (name){ document.getElementById("done-name").textContent = name; nr.style.display = "flex"; }
+          else nr.style.display = "none";
+          if (phone){ document.getElementById("done-phone").textContent = phone; pr.style.display = "flex"; }
+          else pr.style.display = "none";
           document.getElementById("book-summary").style.display = "none";
           document.getElementById("booked").classList.add("show");
           orders.unshift({
             num: num, svc: state.svcName,
             car: state.className + " · ×" + String(state.coef).replace(".", ","),
             when: state.date + " · " + state.time,
-            sum: total(), status: 0
+            sum: total(), status: 0, name: name || "", phone: phone || ""
           });
           renderOrders();
-        });
-        document.getElementById("again-btn").addEventListener("click", function(){
+        }
+        document.getElementById("book-btn").addEventListener("click", function(){ submitBooking("", ""); });
+        function resetBooking(){
+          state = { svcId: "wash", svcName: "Комплексная мойка", base: 2500, coef: 1, className: "Седан", date: "Чт, 19 ноября", time: "10:00", out: false };
+          document.querySelectorAll(".svc").forEach(function(c){
+            c.classList.remove("selected");
+            c.querySelector("[data-pick]").textContent = "Выбрать";
+          });
+          var wash = document.querySelector('.svc[data-id="wash"]');
+          if (wash){ wash.classList.add("selected"); wash.querySelector("[data-pick]").textContent = "Выбрано"; }
+          document.querySelectorAll("#carclass .cc-btn").forEach(function(b, i){ b.setAttribute("aria-pressed", i === 0 ? "true" : "false"); });
+          document.querySelectorAll("#date-chips .chip").forEach(function(c, i){ c.setAttribute("aria-pressed", i === 0 ? "true" : "false"); });
+          document.querySelectorAll("#time-chips .chip").forEach(function(c, i){ c.setAttribute("aria-pressed", i === 0 ? "true" : "false"); });
+          var out = document.getElementById("out-toggle"); if (out) out.checked = false;
           document.getElementById("booked").classList.remove("show");
           document.getElementById("book-summary").style.display = "block";
-        });
+          document.getElementById("done-name-row").style.display = "none";
+          document.getElementById("done-phone-row").style.display = "none";
+          chatFlow = null; deliUnclear = 0; photoRequested = false; clearDeliChips();
+          renderPrices(); renderSummary();
+          document.getElementById("book-form").scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        document.getElementById("again-btn").addEventListener("click", function(){ resetBooking(); });
 
-        /* ----- chat quick questions ----- */
+        /* ----- chat: quick questions with real effects + dialogue funnel ----- */
+        var MASTER_PHONE_DELI = "+7 900 123-45-67";
+        var CLARIFY_PHRASE_DELI = "Уточните, пожалуйста, какая машина, на какую услугу вы записались? Я всё посчитаю и передам мастеру ваши пожелания.";
+        var chatFlow = null; // {step, svcId, svcName, coef, className, date, time, name, phone}
+        var deliUnclear = 0;
+        var photoRequested = false;
+        function escDeli(x){ return String(x).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+        function chatMsg(who, cls, text){
+          var box = document.getElementById("chat-box");
+          var d = document.createElement("div");
+          d.className = "msg " + cls;
+          d.innerHTML = '<span class="who">' + who + '</span>' + escDeli(text);
+          box.appendChild(d);
+          box.scrollTop = box.scrollHeight;
+        }
+        function studioSay(text){ chatMsg("Detailing Bro", "studio", text); }
+        function userSayDeli(text){ chatMsg("Вы", "me", text); }
+        function addDeliChip(label, fn){
+          var box = document.querySelector(".chat-chips");
+          if (!box) return;
+          var b = document.createElement("button");
+          b.type = "button"; b.className = "chip"; b.setAttribute("data-deli", "1");
+          b.textContent = label;
+          b.addEventListener("click", function(){ clearDeliChips(); fn(); });
+          box.appendChild(b);
+        }
+        function clearDeliChips(){
+          document.querySelectorAll("[data-deli]").forEach(function(c){ if (c.parentNode) c.parentNode.removeChild(c); });
+        }
+        function setTimeChips(timeStr){
+          document.querySelectorAll("#time-chips .chip").forEach(function(c){ c.setAttribute("aria-pressed", c.dataset.time === timeStr ? "true" : "false"); });
+        }
         var replies = {
-          "Можно ли перенести запись на вечер?": "Конечно. Свободно в 18:00 — перенесли вашу заявку, подтверждение уже в статусах заказа.",
-          "Пришлите фото «после», пожалуйста": "Отправим сразу после выдачи авто: фото «до / после» прикладываем к каждой заявке.",
-          "Как оплатить?": "Картой в студии или по ссылке, которую пришлём сюда после выполнения работы."
+          "Можно ли перенести запись на вечер?": function(){
+            state.time = "18:00";
+            setTimeChips("18:00");
+            renderSummary();
+            return "Готово — перенесли вашу запись на вечер: " + state.date + " в 18:00. Итог не изменился: " + fmt(total()) + ".";
+          },
+          "Пришлите фото «после», пожалуйста": function(){
+            photoRequested = true;
+            return "Запросили фото «после» — прикрепим их к вашей заявке сразу после выдачи авто, они появятся здесь же, в чате.";
+          },
+          "Как оплатить?": function(){
+            return "Картой в студии или по ссылке, которую пришлём сюда после выполнения работы. Итог вашей заявки сейчас: " + fmt(total()) + ".";
+          }
         };
         document.querySelectorAll("[data-ask]").forEach(function(btn){
           btn.addEventListener("click", function(){
-            var box = document.getElementById("chat-box");
-            var me = document.createElement("div");
-            me.className = "msg me";
-            me.innerHTML = '<span class="who">Вы</span>' + btn.dataset.ask;
-            box.appendChild(me);
-            var st = document.createElement("div");
-            st.className = "msg studio";
-            st.innerHTML = '<span class="who">АвтоБлеск</span>' + (replies[btn.dataset.ask] || "Принято, ответим в течение пары минут.");
-            box.appendChild(st);
-            box.scrollTop = box.scrollHeight;
+            userSayDeli(btn.dataset.ask);
+            deliUnclear = 0;
+            var fn = replies[btn.dataset.ask];
+            studioSay(fn ? fn() : "Принято, ответим в течение пары минут.");
           });
         });
+        /* ----- funnel: service -> class -> when -> name -> phone -> confirm ----- */
+        var DELI_SERVICES = [
+          { id: "wash", keys: ["мойк", "помыть"], name: "Комплексная мойка" },
+          { id: "polish", keys: ["полировк"], name: "Полировка кузова" },
+          { id: "ceramic", keys: ["керамик"], name: "Керамическое покрытие" }
+        ];
+        function deliServiceBase(id){
+          var card = document.querySelector('.svc[data-id="' + id + '"]');
+          return card ? +card.dataset.base : 0;
+        }
+        function syncService(id){
+          var card = document.querySelector('.svc[data-id="' + id + '"]');
+          if (!card) return false;
+          document.querySelectorAll(".svc").forEach(function(c){ c.classList.remove("selected"); c.querySelector("[data-pick]").textContent = "Выбрать"; });
+          card.classList.add("selected");
+          card.querySelector("[data-pick]").textContent = "Выбрано";
+          state.svcId = card.dataset.id; state.base = +card.dataset.base;
+          state.svcName = card.querySelector("h3").textContent;
+          renderSummary();
+          return true;
+        }
+        function syncClass(coef){
+          var found = false;
+          document.querySelectorAll("#carclass .cc-btn").forEach(function(b){
+            var on = parseFloat(b.dataset.coef) === coef;
+            b.setAttribute("aria-pressed", on ? "true" : "false");
+            if (on){ state.coef = coef; state.className = b.querySelector(".cc-name").textContent; found = true; }
+          });
+          if (found){ renderPrices(); renderSummary(); }
+          return found;
+        }
+        function syncDate(dateStr){
+          var found = false;
+          document.querySelectorAll("#date-chips .chip").forEach(function(c){
+            var on = c.dataset.date === dateStr;
+            c.setAttribute("aria-pressed", on ? "true" : "false");
+            if (on){ state.date = dateStr; found = true; }
+          });
+          if (found) renderSummary();
+          return found;
+        }
+        function syncTime(timeStr){
+          document.querySelectorAll("#time-chips .chip").forEach(function(c){ c.setAttribute("aria-pressed", c.dataset.time === timeStr ? "true" : "false"); });
+          state.time = timeStr;
+          renderSummary();
+        }
+        function extractDeli(text){
+          var t = text.toLowerCase(), out = {};
+          if (t.indexOf("кроссовер")>=0){ out.coef = 1.2; out.className = "Кроссовер"; }
+          else if (t.indexOf("внедорож")>=0){ out.coef = 1.4; out.className = "Внедорожник"; }
+          else if (t.indexOf("седан")>=0){ out.coef = 1; out.className = "Седан"; }
+          for (var i=0;i<DELI_SERVICES.length;i++){
+            for (var j=0;j<DELI_SERVICES[i].keys.length;j++){
+              if (t.indexOf(DELI_SERVICES[i].keys[j])>=0){ out.svcId = DELI_SERVICES[i].id; break; }
+            }
+            if (out.svcId) break;
+          }
+          var ph = text.match(/(\+?7|8)[\s\-()]*\d{3}[\s\-()]*\d{3}[\s\-()]*\d{2}[\s\-()]*\d{2}/);
+          if (ph) out.phone = ph[0].trim();
+          var tm = text.match(/\d{1,2}[:.]\d{2}/);
+          if (tm) out.time = tm[0].replace(".", ":");
+          if (t.indexOf("сегодня")>=0) out.date = "Сб, 21 ноября";
+          else if (t.indexOf("завтра")>=0) out.date = "Вс, 22 ноября";
+          else if (t.indexOf("19 ноября")>=0) out.date = "Чт, 19 ноября";
+          else if (t.indexOf("20 ноября")>=0) out.date = "Пт, 20 ноября";
+          else if (t.indexOf("21 ноября")>=0) out.date = "Сб, 21 ноября";
+          else if (t.indexOf("22 ноября")>=0) out.date = "Вс, 22 ноября";
+          var m = text.match(/меня зовут\s+([А-Яа-яЁёA-Za-z\- ]{2,30})/i);
+          if (m) out.name = m[1].trim();
+          return out;
+        }
+        function applyDeliExtracted(f){
+          var filled = 0;
+          if (f.svcId && f.svcId !== chatFlow.svcId){
+            chatFlow.svcId = f.svcId;
+            var sv = null; DELI_SERVICES.forEach(function(x){ if (x.id === f.svcId) sv = x; });
+            chatFlow.svcName = sv ? sv.name : chatFlow.svcName;
+            syncService(f.svcId); filled++;
+          }
+          if (f.coef && f.coef !== chatFlow.coef){ chatFlow.coef = f.coef; chatFlow.className = f.className; syncClass(f.coef); filled++; }
+          if (f.date && f.date !== chatFlow.date){ chatFlow.date = f.date; syncDate(f.date); filled++; }
+          if (f.time && f.time !== chatFlow.time){ chatFlow.time = f.time; syncTime(f.time); filled++; }
+          if (f.name && !chatFlow.name){ chatFlow.name = f.name; filled++; }
+          if (f.phone && !chatFlow.phone){ chatFlow.phone = f.phone; filled++; }
+          return filled;
+        }
+        function deliFaq(text){
+          var t = text.toLowerCase();
+          if (t.indexOf("сколько стоит")>=0 || t.indexOf("цена")>=0 || t.indexOf("почём")>=0 || t.indexOf("почем")>=0){
+            return "Цены каталога (седан): комплексная мойка — " + fmt(deliServiceBase("wash")) + ", полировка кузова — " + fmt(deliServiceBase("polish")) + ", керамическое покрытие — " + fmt(deliServiceBase("ceramic")) + ". Кроссовер ×1,2, внедорожник ×1,4. Минимум заказа — 2 500 ₽.";
+          }
+          if (t.indexOf("как оплатить")>=0 || t.indexOf("оплата")>=0 || t.indexOf("платить")>=0) return "Картой в студии или по ссылке, которую пришлём сюда после выполнения работы. Итог вашей заявки сейчас: " + fmt(total()) + ".";
+          if (t.indexOf("выезд")>=0 || t.indexOf("за город")>=0) return "Выезд мастера за город — +800 ₽ к заказу. В пределах города выезд включён.";
+          if (t.indexOf("фото")>=0) return "Фото «до / после» прикладываем к каждой заявке — пришлём сюда после выдачи авто.";
+          if (t.indexOf("керамика")>=0 && t.indexOf("держ")>=0) return "Сколько держится керамика — скажет мастер после осмотра, зависит от состояния покрытия.";
+          if (t.indexOf("привет")>=0 || t.indexOf("здравствуйте")>=0 || t.indexOf("добрый")>=0) return "Здравствуйте! Помогу записаться: подскажите услугу и класс авто — или напишите «записаться», и я задам вопросы по шагам.";
+          return null;
+        }
+        function startDeliFlow(){
+          chatFlow = { step: "service", svcId: "", svcName: "", coef: 0, className: "", date: "", time: "", name: "", phone: "" };
+          studioSay("Здравствуйте! Помогу записаться. Какая услуга нужна? Мойка — " + fmt(deliServiceBase("wash")) + ", полировка — " + fmt(deliServiceBase("polish")) + ", керамика — " + fmt(deliServiceBase("ceramic")) + " (цены для седана).");
+        }
+        function askDeliNext(){
+          if (!chatFlow.svcId){ chatFlow.step = "service"; studioSay("Какая услуга нужна? Мойка, полировка или керамика?"); return; }
+          if (!chatFlow.coef){ chatFlow.step = "class"; studioSay("Какой у вас автомобиль: седан, кроссовер или внедорожник?"); return; }
+          if (!chatFlow.date || !chatFlow.time){ chatFlow.step = "when"; studioSay("На какую дату и время? Например: «21 ноября в 14:00» или «завтра в 18:00»."); return; }
+          if (!chatFlow.name){ chatFlow.step = "name"; studioSay("Как к вам обращаться? Напишите имя."); return; }
+          if (!chatFlow.phone){ chatFlow.step = "phone"; studioSay("Напишите номер телефона — мастер перезвонит подтвердить заявку."); return; }
+          chatFlow.step = "confirm";
+          var sum = Math.round(deliServiceBase(chatFlow.svcId) * chatFlow.coef) + (state.out ? 800 : 0);
+          studioSay("Проверяем заявку:\n• Услуга: " + chatFlow.svcName + "\n• Авто: " + chatFlow.className + "\n• Когда: " + chatFlow.date + " в " + chatFlow.time + "\n• Имя: " + chatFlow.name + "\n• Телефон: " + chatFlow.phone + "\n\nИтоговая стоимость: " + fmt(sum) + ".\nОтправляем заявку?");
+          addDeliChip("Да, записаться", function(){ confirmDeliBooking(); });
+          addDeliChip("Начать заново", function(){ chatFlow = null; startDeliFlow(); });
+        }
+        function confirmDeliBooking(){
+          if (!chatFlow) return;
+          syncService(chatFlow.svcId);
+          syncClass(chatFlow.coef);
+          if (chatFlow.date) syncDate(chatFlow.date);
+          if (chatFlow.time) syncTime(chatFlow.time);
+          submitBooking(chatFlow.name, chatFlow.phone);
+          studioSay("Готово! Заявка отправлена, итоговая стоимость — " + fmt(total()) + ". Мастер свяжется с вами по телефону " + chatFlow.phone + " и подтвердит время.");
+          clearDeliChips();
+          chatFlow = null; deliUnclear = 0;
+        }
+        function deliUnclearFn(){
+          deliUnclear++;
+          if (deliUnclear >= 3){
+            deliUnclear = 0;
+            studioSay("Похоже, мы не понимаем друг друга. Позвоните напрямую в детейлинг: " + MASTER_PHONE_DELI + " — мастер всё посчитает и запишет вас сам.");
+            addDeliChip("Позвонить", function(){ window.location.href = "tel:" + MASTER_PHONE_DELI.replace(/[^+\d]/g, ""); });
+            addDeliChip("Начать заново", function(){ chatFlow = null; startDeliFlow(); });
+          } else studioSay(CLARIFY_PHRASE_DELI);
+        }
+        function handleDeliText(raw){
+          var text = raw.trim(); if (!text) return;
+          userSayDeli(text);
+          if (!chatFlow) chatFlow = { step: "service", svcId: "", svcName: "", coef: 0, className: "", date: "", time: "", name: "", phone: "" };
+          var step = chatFlow.step;
+          var t = text.toLowerCase();
+          if (step === "name"){
+            var f0 = extractDeli(text);
+            if ((f0.svcId || f0.coef || f0.date || f0.time) && !f0.name){ applyDeliExtracted(f0); studioSay("Понял, обновил заявку. А как к вам обращаться? Напишите имя."); return; }
+            if (f0.name){ chatFlow.name = f0.name; }
+            else if (text.length >= 2 && text.length <= 40 && !/\d/.test(text)){ chatFlow.name = text; }
+            else { deliUnclearFn(); return; }
+            applyDeliExtracted(f0);
+            deliUnclear = 0;
+            if (!chatFlow.phone){ chatFlow.step = "phone"; studioSay("Приятно познакомиться, " + chatFlow.name + "! Теперь напишите номер телефона — мастер перезвонит подтвердить заявку."); }
+            else askDeliNext();
+            return;
+          }
+          if (step === "phone"){
+            var f1 = extractDeli(text);
+            if ((f1.svcId || f1.coef || f1.date || f1.time) && !f1.phone){ applyDeliExtracted(f1); studioSay("Понял, обновил заявку. Напишите номер телефона — мастер перезвонит подтвердить заявку."); return; }
+            var digits = text.replace(/\D/g, "");
+            if (digits.length < 10){ deliUnclearFn(); return; }
+            chatFlow.phone = f1.phone || text; applyDeliExtracted(f1);
+            deliUnclear = 0; askDeliNext();
+            return;
+          }
+          if (step === "confirm"){
+            if (t.indexOf("да")>=0 || t.indexOf("запис")>=0 || t.indexOf("отправ")>=0){ confirmDeliBooking(); return; }
+            if (t.indexOf("заново")>=0 || t.indexOf("нет")>=0){ chatFlow = null; startDeliFlow(); return; }
+            var f3 = extractDeli(text);
+            if (applyDeliExtracted(f3) > 0){ askDeliNext(); return; }
+            studioSay("Нажмите «Да, записаться» — и заявка уйдёт мастеру. Или «Начать заново».");
+            return;
+          }
+          if (t.indexOf("записаться")>=0 || t.indexOf("записатся")>=0 || t.indexOf("оформить")>=0 || t.indexOf("забронировать")>=0){ askDeliNext(); deliUnclear = 0; return; }
+          if (t.indexOf("перенести")>=0){
+            var fn = replies["Можно ли перенести запись на вечер?"];
+            studioSay(fn ? fn() : "Перенести запись можно на вечер — 18:00.");
+            deliUnclear = 0; return;
+          }
+          var faq = deliFaq(text);
+          if (faq){ studioSay(faq); deliUnclear = 0; return; }
+          var f = extractDeli(text);
+          if (applyDeliExtracted(f) > 0){ deliUnclear = 0; askDeliNext(); return; }
+          deliUnclearFn();
+        }
+        document.getElementById("deliChatSend").addEventListener("click", function(){
+          var inp = document.getElementById("deliChatText");
+          var v = inp.value; inp.value = ""; handleDeliText(v);
+        });
+        /* ----- mic: голосовой ввод в тот же диалог (правило кларификации — CLARIFY_PHRASE_DELI) ----- */
+        (function(){
+          var SRD = window.SpeechRecognition || window.webkitSpeechRecognition;
+          var micBtn = document.getElementById("deliChatMic");
+          if (!micBtn) return;
+          var rec = null, recOn = false, finalTxt = "";
+          function stopMic(send){
+            if (!recOn) return;
+            recOn = false; micBtn.classList.remove("rec");
+            try { if (rec){ rec.onend = null; rec.stop(); } } catch(e){}
+            rec = null;
+            if (send){
+              var txt = (finalTxt || "").trim();
+              finalTxt = "";
+              if (txt) handleDeliText(txt);
+            }
+          }
+          micBtn.addEventListener("click", function(){
+            if (recOn){ stopMic(true); return; }
+            if (!SRD){ studioSay("Голосовой ввод недоступен в этом браузере, напишите текстом."); return; }
+            try {
+              rec = new SRD();
+              rec.lang = "ru-RU"; rec.interimResults = true; rec.continuous = true;
+              finalTxt = "";
+              rec.onresult = function(e){
+                var interim = "";
+                for (var i = e.resultIndex; i < e.results.length; i++){
+                  if (e.results[i].isFinal) finalTxt += e.results[i][0].transcript;
+                  else interim += e.results[i][0].transcript;
+                }
+                var inp = document.getElementById("deliChatText");
+                if (inp) inp.value = (finalTxt + " " + interim).trim();
+              };
+              rec.onend = function(){ if (recOn){ try { rec.start(); } catch(e){} } };
+              rec.onerror = function(){ stopMic(false); };
+              rec.start(); recOn = true; micBtn.classList.add("rec");
+              setTimeout(function(){ stopMic(true); }, 60000);
+            } catch(e){ studioSay("Голосовой ввод недоступен в этом браузере, напишите текстом."); }
+          });
+        })();
 
         renderPrices();
         renderSummary();
